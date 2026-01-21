@@ -14,9 +14,10 @@ class UserFactory extends Factory
 
     public function definition(): array
     {
+        $faker = \Faker\Factory::create();
         return [
             'worker_id' => HealthWorker::factory(), 
-            'username' => $this->faker->unique()->userName(),
+            'username' => $faker->unique()->userName(),
             'password' => Hash::make('password'), 
             'remember_token' => Str::random(10),
             'last_login' => null,

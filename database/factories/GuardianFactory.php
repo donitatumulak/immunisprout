@@ -18,11 +18,12 @@ class GuardianFactory extends Factory
     protected $model = Guardian::class;
     public function definition(): array
     {
+        $faker = \Faker\Factory::create();
         return [
-            'grd_first_name' => $this->faker->firstName(),
-            'grd_last_name' => $this->faker->lastName(),
-            'grd_contact_number' => $this->faker->phoneNumber(),
-            'grd_relationship' => $this->faker->randomElement(['mother', 'father', 'grandparent', 'legal guardian', 'other']),
+            'grd_first_name' => $faker->firstName(),
+            'grd_last_name' => $faker->lastName(),
+            'grd_contact_number' => $faker->phoneNumber(),
+            'grd_relationship' => $faker->randomElement(['mother', 'father', 'grandparent', 'legal guardian', 'other']),
             'grd_current_addr_id' => \App\Models\Address::factory(),
         ];
     }
