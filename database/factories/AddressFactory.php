@@ -18,9 +18,8 @@ class AddressFactory extends Factory
     protected $model = Address::class;
     public function definition(): array
     {
-        $faker = \Faker\Factory::create();
         return [
-            'addr_line_1' => $faker->streetAddress(),
+            'addr_line_1' => $this->faker->streetAddress(),
             'addr_barangay' => 'Pusok',
             'addr_city_municipality' => 'Lapu-Lapu City',
             'addr_province' => 'Cebu',

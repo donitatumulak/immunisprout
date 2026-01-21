@@ -18,13 +18,12 @@ class HealthWorkerFactory extends Factory
     protected $model = HealthWorker::class;
     public function definition(): array
     {
-        $faker = \Faker\Factory::create();
         return [
-            'wrk_first_name' => $faker->firstName(),
-            'wrk_last_name' => $faker->lastName(),
-            'wrk_contact_number' => $faker->phoneNumber(),
+            'wrk_first_name' => $this->faker->firstName(),
+            'wrk_last_name' => $this->faker->lastName(),
+            'wrk_contact_number' => $this->faker->phoneNumber(),
             'wrk_addr_id' => \App\Models\Address::factory(),
-            'wrk_role' => $faker->randomElement(['nurse', 'midwife', 'bhw', 'admin']),
+            'wrk_role' => $this->faker->randomElement(['nurse', 'midwife', 'bhw', 'admin']),
         ];
     }
 }
