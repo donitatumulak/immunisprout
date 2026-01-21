@@ -1,0 +1,424 @@
+  /* Page Layout */
+    .container {
+        display: block !important;
+        max-width: 100% !important;
+    }
+
+    #main-content {
+        background: #f8f9fa;
+        min-height: 100vh;
+        padding: 2rem;
+    }
+
+    /* Document Card Container */
+    .document-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    /* Document Header */
+    .document-header {
+        background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+        color: white;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .document-header h4 {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .document-header .btn-close {
+        background: white;
+        opacity: 1;
+    }
+
+    /* Document Body */
+    .document-body {
+        padding: 2rem 3rem;
+    }
+
+    /* Official Header Section */
+    .official-header {
+        border-bottom: 3px solid var(--green, #198754);
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .official-header img {
+        height: 80px;
+    }
+
+    .official-header h5 {
+        color: var(--green, #198754);
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    /* Child Info Grid */
+    .child-info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem 1.5rem;
+        background: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .info-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #718096;
+        font-weight: 700;
+        margin-bottom: 2px;
+        letter-spacing: 0.5px;
+    }
+
+    .info-value {
+        font-size: 0.95rem;
+        color: #2d3748;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    .address-field {
+        grid-column: span 2;
+    }
+
+    /* Vaccination Table */
+    .vaccination-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+    }
+
+    .vaccination-table thead {
+        background: #f8f9fa;
+        color: var(--green, #198754);
+    }
+
+    .vaccination-table th {
+        padding: 0.75rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: 1px solid #dee2e6;
+    }
+
+    .vaccination-table td {
+        padding: 0.75rem;
+        border: 1px solid #dee2e6;
+        text-align: center;
+    }
+
+    .vaccination-table .vaccine-name {
+        text-align: left;
+        font-weight: bold;
+        padding-left: 1rem;
+    }
+
+    .vaccination-table .bg-light-subtle {
+        background: #f8f9fa;
+    }
+
+    .vaccination-table tbody tr:hover {
+        background: #f1f3f5;
+    }
+
+       /* Administer Button */
+    .btn-administer {
+        background: #198754;
+        color: white;
+        border: none;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .btn-administer:hover {
+        background: #157347;
+        transform: translateY(-1px);
+    }
+
+    /* Status Badges */
+    .badge-complete { 
+        background: #198754; 
+        color: white; 
+        padding: 4px 10px; 
+        border-radius: 12px; 
+        font-size: 0.75rem;
+    }
+
+    .badge-overdue { 
+        background: #dc3545; 
+        color: white; 
+        padding: 4px 10px; 
+        border-radius: 12px; 
+        font-size: 0.75rem;
+    }
+
+    .badge-upcoming { 
+        background: #0dcaf0; 
+        color: white; 
+        padding: 4px 10px; 
+        border-radius: 12px; 
+        font-size: 0.75rem;
+    }
+
+    .badge-not-yet-due { 
+        background: #6c757d; 
+        color: white; 
+        padding: 4px 10px; 
+        border-radius: 12px; 
+        font-size: 0.60rem;
+    }
+
+    /* Print Styles - Optimized for Official Health Center Document */
+    @media print {
+        @page {
+            size: portrait;
+            margin: 0.5in;
+        }
+        
+        body { 
+            background: white !important;
+            color: #2d3748;
+            font-size: 7pt;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        /* CRITICAL: Force main containers to display */
+        #main-content,
+        .container,
+        .document-container,
+        .document-body {
+            display: block !important;
+            visibility: visible !important;
+            background: white !important;
+        }
+        
+        /* Hide non-essential UI */
+        .d-print-none, 
+        .action-buttons, 
+        .btn-administer, 
+        .document-header, 
+        .btn-close, 
+        #sidebar, 
+        #navbar, 
+        footer,
+        .public-notice{
+            display: none !important;
+        }
+
+        .print-hide {
+            display: none !important;
+        }
+        
+        /* Show print-only elements */
+        .d-none.d-print-block {
+            display: block !important;
+        }
+        
+        #main-content { 
+            padding: 0 !important; 
+            margin: 0 !important; 
+            background: white !important;
+            min-height: auto !important;
+        }
+        
+        .document-container { 
+            box-shadow: none !important; 
+            border: none !important; 
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+        
+        .document-body { 
+            padding: 0 !important; 
+        }
+
+        /* Compact Header Section */
+        .official-header .row {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+        }
+
+        .official-header .col-md-6 {
+            flex: 0 0 50% !important;
+            max-width: 50% !important;
+            width: 50% !important;
+        }
+
+        .official-header .text-md-end {
+            text-align: right !important;
+        }
+
+        /* Remove bottom margin that might cause stacking */
+        .official-header .mb-3,
+        .official-header .mb-md-0 {
+            margin-bottom: 0 !important;
+        }
+
+        /* Optional: Make the header more compact */
+        .official-header {
+            border-bottom: 1.5px solid #e2e8f0 !important;
+            margin-bottom: 1rem !important;
+            padding-bottom: 0.5rem !important;
+            display: block !important;
+        }
+
+        .official-header .row {
+            margin: 0 !important;
+        }
+
+        .official-header img { 
+            height: 50px !important; 
+            width: auto !important; 
+            margin-right: 0.5rem !important;
+        }
+
+        .official-header h5 {
+            font-size: 9pt !important;
+            margin-bottom: 2px !important;
+        }
+
+        .official-header p {
+            font-size: 6pt !important;
+            margin-bottom: 1px !important;
+        }
+
+        .official-header .text-md-end p {
+            font-size: 6pt !important;
+        }
+
+        .official-header .badge {
+            font-size: 5pt !important;
+            padding: 2px 6px !important;
+        }
+
+        /* Force 3-Column Grid Layout */
+        .child-info-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.5rem 1rem !important;
+            padding: 12px !important;
+            margin-bottom: 1rem !important;
+            border: 1px solid #edf2f7 !important;
+            border-radius: 8px;
+        }
+
+        .address-field { 
+            grid-column: span 2 !important; 
+        }
+
+        .info-label {
+            font-size: 5pt !important;
+            color: #718096 !important;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .info-value {
+            font-size: 6pt !important;
+            color: #2d3748;
+            border-bottom: 1px solid #e2e8f0 !important;
+            padding-bottom: 2px;
+        }
+
+        /* Modern Table Styling */
+        .vaccination-table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            margin-bottom: 1rem !important;
+            display: table !important;
+        }
+
+        .vaccination-table thead {
+            display: table-header-group !important;
+        }
+
+        .vaccination-table tbody {
+            display: table-row-group !important;
+        }
+
+        .vaccination-table tr {
+            display: table-row !important;
+            page-break-inside: avoid;
+        }
+
+        .vaccination-table th,
+        .vaccination-table td {
+            display: table-cell !important;
+        }
+
+        .vaccination-table th {
+            background: #f1f5f9 !important;
+            border: 1px solid #e2e8f0 !important;
+            color: #4a5568 !important;
+            font-size: 6pt;
+            padding: 6px !important;
+        }
+
+        .vaccination-table td {
+            border: 1px solid #e2e8f0 !important;
+            padding: 5px 8px !important;
+            font-size: 7pt;
+        }
+
+        /* Badge and Status Colors */
+        .badge-complete {
+            background: #198754 !important;
+            color: white !important;
+            border: none !important;
+            font-size: 5pt !important;
+        }
+
+        .badge-upcoming,
+        .badge-overdue,
+        .badge-not-yet-due {
+            display: none !important;
+        }
+
+        /* Compact Signatures */
+        .print-signatures {
+            margin-top: 1cm !important; 
+            padding-top: 0.5cm;
+            page-break-inside: avoid;
+            display: block !important;
+        }
+    }
+
+    /* Loading Animation */
+    .spinner-border-sm {
+        width: 1rem;
+        height: 1rem;
+        border-width: 0.15em;
+    }
+
+    @media (max-width: 768px) {
+        .child-info-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .address-field {
+            grid-column: span 1;
+        }
+    }

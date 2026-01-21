@@ -1,0 +1,540 @@
+/* Keyframe for Page Load Entrance */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-text {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* --- SECTION DEFAULTS --- */
+.section-default {
+  padding: 110px 0; /* Consistent Sizing */
+}
+
+.bg-cream {
+  background-color: var(--cream);
+  color: var(--green);
+}
+
+.bg-cream .section-heading, .bg-cream p, .bg-cream li {
+  color: var(--green);
+}
+
+.overlay-orange {
+  background: linear-gradient(rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.8)), 
+              url('../images/photo1.jpg') center/cover no-repeat;
+  color: var(--cream);
+}
+
+.overlay-orange .section-heading {
+  color: var(--cream);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- NAVBAR (Floating on Hero) --- */
+.public-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent !important;
+}
+
+.nav-link {
+  color: var(--cream) !important;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  color: var(--white) !important;
+  text-decoration: underline;
+}
+
+/* --- HERO & SMOOTH SLIDER --- */
+.hero-carousel {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth Fade instead of slide */
+/* 1. Stack all items on top of each other */
+.carousel-fade .carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out; /* The "Smooth" magic */
+  display: block !important; /* Overrides default bootstrap display none */
+}
+
+/* 2. Only the active slide is visible */
+.carousel-fade .carousel-item.active {
+  position: relative; /* This one sets the height of the container */
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Delay the text from appearing until the background fade is halfway done */
+.carousel-item:not(.active) .hero-content-wrapper {
+  opacity: 0;
+  transition: opacity 0.3s ease-out; /* Fast fade out */
+}
+
+.carousel-item.active .hero-content-wrapper {
+  opacity: 1;
+  transition: opacity 0.5s ease-in 0.3s; /* 0.3s DELAY makes it "morph" */
+}
+
+.hero-content-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12%; 
+}
+
+.hero-carousel h1 {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* CUSTOM CHECK LIST STYLING */
+.custom-check-list {
+    list-style: none;      
+    padding-left: 0;       
+}
+
+.custom-check-list li {
+    font-size: 1.25rem;   
+    margin-bottom: 20px;   
+    display: flex;       
+    align-items: center;   
+    color: var(--green);  
+}
+
+.custom-check-list i {
+    color: var(--orange); 
+    margin-right: 15px;    
+    font-size: 1.4rem;    
+    width: 30px;          
+    text-align: center;
+}
+
+/* Static Navigation Arrows (No more jumping) */
+.custom-nav {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.custom-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-control-prev { left: 30px; }
+.carousel-control-next { right: 30px; }
+
+/* --- CARDS & INTERACTION --- */
+.surface-white {
+  background: var(--white);
+  border-radius: 15px;
+  color: var(--green) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none;
+}
+
+/* Card Shadow & Hover Animation */
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.surface-white p, .surface-white h5, .surface-white h4 {
+  color: var(--green) !important;
+}
+
+.icon-2d {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: rgba(46, 139, 87, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--green);
+  font-size: 2.2rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .display-3 { font-size: 2.2rem; }
+  .section-default { padding: 80px 0; }
+  .hero-content-wrapper { padding: 0 5%; }
+  .custom-nav { display: none; } /* Hide arrows on mobile for cleaner look */
+}
+
+/* --- SCROLL PROMPT --- */
+.scroll-down {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream);
+  text-align: center;
+  text-decoration: none;
+  z-index: 5;
+  font-weight: 500;
+}
+
+.bounce {
+  display: block;
+  font-size: 1.8rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-12px);}
+  60% {transform: translateY(-6px);}
+}
+
+/* --- MOBILE RESPONSIVENESS (Phone Screens) --- */
+@media (max-width: 576px) {
+    
+    /* 1. Hero Section Fixes */
+    .hero-content-wrapper {
+        padding: 0 5% !important; /* Give text more horizontal room */
+    }
+
+    .display-3 {
+        font-size: 1.8rem !important; /* Significantly smaller heading */
+        line-height: 1.2;
+    }
+
+    .hero-carousel .lead {
+        font-size: 1rem !important; /* Smaller paragraph text */
+        padding: 0 10px;
+    }
+
+    .hero-carousel .btn-lg {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* 2. Section Adjustments */
+    .section-default {
+        padding: 60px 0 !important; /* Reduce huge top/bottom gaps */
+    }
+
+    .section-heading {
+        font-size: 1.5rem !important;
+    }
+
+    /* 3. Card & List Fixes */
+    .surface-white {
+        padding: 25px !important; /* Less internal padding in cards */
+        margin-bottom: 15px;
+    }
+
+    .custom-check-list li {
+        font-size: 1rem !important; /* List text looks better at 1rem on phone */
+        align-items: flex-start; /* Prevents long text from centering on icon */
+    }
+
+    .icon-2d {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    /* 4. Navigation & UI Elements */
+    .navbar-brand img {
+        height: 60px !important; /* Smaller logo in header */
+    }
+
+    .custom-nav {
+        display: none !important; /* Hide carousel arrows (Users swipe on mobile) */
+    }
+
+    .scroll-down {
+        bottom: 10px;
+        font-size: 0.8rem;
+    }
+
+    #btn-back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* 5. Footer Scaling */
+    .public-footer {
+        padding: 40px 15px 20px !important;
+    }
+
+    .footer-logo img {
+        height: 50px !important;
+    }
+}
+
+/* --- TABLET ADJUSTMENTS (Optional small tweaks) --- */
+@media (min-width: 577px) and (max-width: 991px) {
+    .display-3 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-content-wrapper {
+        padding: 0 10%;
+    }
+}
+
+/* --- UPDATED LOGIN PAGE STYLES --- */
+
+/* 1. Header/Logo Positioning */
+.login-bg-custom {
+    background: linear-gradient(rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.8)), 
+                url('../images/photo2.jpg') center/cover no-repeat !important;
+}
+
+.login-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    pointer-events: none; 
+}
+
+.login-nav .navbar-brand {
+    pointer-events: auto; /* Makes only the logo clickable */
+}
+
+/* 2. Layout Structure */
+.login-split-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+}
+
+.left-panel {
+    min-height: 100vh;
+    display: flex;
+    /* This ensures the overlay-orange background behaves well */
+    background-size: cover;
+    background-position: center;
+}
+
+.right-panel {
+    min-height: 100vh;
+    background-color: var(--cream);
+}
+
+/* 3. Left Side Content (Right Aligned) */
+.left-panel .panel-content {
+    width: 100%;
+    /* justify-content-end in HTML pushes this to the right */
+}
+
+/* 4. The Green Outlined Card (Soft Corners) */
+.login-outline-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff; /* Clean white base inside the card */
+    border: 2px solid var(--green); /* Green Outline */
+    border-radius: 30px;            /* Soft, Rounded Corners */
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. Form Elements */
+.form-label {
+    margin-bottom: 0.5rem;
+}
+
+.form-control:focus {
+    border-color: var(--orange);
+    box-shadow: none; /* Removes the blue glow for a cleaner look */
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border-color: #dee2e6;
+}
+
+/* 6. Action Button (Green to match theme) */
+.btn-login {
+    background-color: var(--green);
+    color: var(--cream);
+    font-weight: 700;
+    border: 2px solid var(--green);
+    border-radius: 50px; /* Capsule shape */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-login:hover {
+    background-color: transparent;
+    color: var(--green);
+    transform: translateY(-2px);
+}
+
+/* 7. Responsive Mobile Tweaks */
+@media (max-width: 991px) {
+    .login-nav {
+        position: relative;
+        background-color: var(--cream);
+        text-align: center;
+    }
+    
+    .login-nav .container-fluid {
+        padding: 10px !important;
+    }
+
+    .left-panel {
+        display: none !important; /* Hide orange panel on mobile for better focus */
+    }
+
+    .right-panel {
+        min-height: calc(100vh - 100px);
+        padding: 20px;
+    }
+
+    .login-outline-card {
+        padding: 2rem;
+        border-width: 2px; /* Thinner border on mobile */
+    }
+}
+
+/* --- PUBLIC SEARCH SPECIFIC STYLES --- */
+
+/* Hero section for search */
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+/* Enhancing the verified card look */
+#printable-record {
+    border: 1px solid #dee2e6 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+#printable-record::after {
+    content: '\f48e'; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    
+    /* 1. Centering */
+    top: 50%;
+    left: 50%;
+    
+    /* 2. THE FIX: Combine translate and rotate into ONE property */
+    /* This ensures the browser applies both at the same time */
+    transform: translate(-50%, -50%) !important; 
+    
+    /* 3. Visuals */
+    font-size: 30rem; 
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+    display: inline-block; /* Crucial: transforms don't always work on 'inline' elements */
+    filter: grayscale(100%);
+}
+
+/* Ensure the parent container can hold the absolute icon */
+#printable-record {
+    position: relative;
+    overflow: hidden; /* Keeps the large icon from spilling out of the card */
+    z-index: 1;
+}
+/* Accordion Styling */
+.accordion-button:not(.collapsed) {
+    background-color: var(--green);
+    color: var(--cream);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--green);
+}
+
+/* Contact Card Icon Overrides */
+.bg-light.icon-2d {
+    background: rgba(255, 165, 0, 0.1) !important;
+    color: var(--orange) !important;
+}
+
+.border-orange {
+    border-color: var(--orange) !important;
+}
+
+/* Accordion shadow tweak */
+.accordion-item {
+    border: none;
+    margin-bottom: 5px;
+}
+
+.search-bg-custom {
+    background: linear-gradient(rgba(255, 165, 0, 0.8), rgba(255, 165, 0, 0.8)), 
+                url('../images/photo3.jpg') center/cover no-repeat !important;
+}
+
+.btn-outline-custom {
+    background: transparent;
+    color: #fdfbf0;
+    border: 1px solid #fdfbf0;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease; /* Smoothly animates the hover */
+}
+
+.btn-outline-custom:hover {
+    background: #fdfbf0;
+    color: #000; /* Changes text to black (or your theme color) when background turns light */
+    transform: translateY(-2px); /* Optional: slight lift effect */
+}
+
+/* Card Table Styling */
+#printable-record table {
+    border: 2px solid var(--green);
+}
+
+#printable-record th {
+    background-color: rgba(46, 139, 87, 0.1);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+#printable-record td.text-muted {
+    font-family: 'Courier New', Courier, monospace; /* Makes it look like a typed record */
+    letter-spacing: 2px;
+}
+
+/* Rowspan highlight */
+.bg-light-subtle {
+    background-color: #f8f9fa !important;
+    vertical-align: middle;
+}
+
+
