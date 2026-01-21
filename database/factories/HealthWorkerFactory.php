@@ -19,11 +19,11 @@ class HealthWorkerFactory extends Factory
     public function definition(): array
     {
         return [
-            'wrk_first_name' => fake()->firstName(),
-            'wrk_last_name' => fake()->lastName(),
-            'wrk_contact_number' => fake()->phoneNumber(),
+            'wrk_first_name' => $this->faker->firstName(),
+            'wrk_last_name' => $this->faker->lastName(),
+            'wrk_contact_number' => $this->faker->phoneNumber(),
             'wrk_addr_id' => \App\Models\Address::factory(),
-            'wrk_role' => fake()->randomElement(['nurse', 'midwife', 'bhw', 'admin']),
+            'wrk_role' => $this->faker->randomElement(['nurse', 'midwife', 'bhw', 'admin']),
         ];
     }
 }

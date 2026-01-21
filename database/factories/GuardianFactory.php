@@ -19,10 +19,10 @@ class GuardianFactory extends Factory
     public function definition(): array
     {
         return [
-            'grd_first_name' => fake()->firstName(),
-            'grd_last_name' => fake()->lastName(),
-            'grd_contact_number' => fake()->phoneNumber(),
-            'grd_relationship' => fake()->randomElement(['mother', 'father', 'grandparent', 'legal guardian', 'other']),
+            'grd_first_name' => $this->faker->firstName(),
+            'grd_last_name' => $this->faker->lastName(),
+            'grd_contact_number' => $this->faker->phoneNumber(),
+            'grd_relationship' => $this->faker->randomElement(['mother', 'father', 'grandparent', 'legal guardian', 'other']),
             'grd_current_addr_id' => \App\Models\Address::factory(),
         ];
     }
