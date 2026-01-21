@@ -16,7 +16,7 @@ class UserFactory extends Factory
     {
         return [
             'worker_id' => HealthWorker::factory(), 
-            'username' => $this->faker->unique()->userName(),
+            'username' => fake()->unique()->userName(),
             'password' => Hash::make('password'), 
             'remember_token' => Str::random(10),
             'last_login' => null,

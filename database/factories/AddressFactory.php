@@ -19,7 +19,7 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'addr_line_1' => $this->faker->streetAddress(),
+            'addr_line_1' => fake()->streetAddress(),
             'addr_barangay' => 'Pusok',
             'addr_city_municipality' => 'Lapu-Lapu City',
             'addr_province' => 'Cebu',
